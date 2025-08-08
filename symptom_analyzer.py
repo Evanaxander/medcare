@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+# symptom_analyzer.py
 import openai
 import os
 from dotenv import load_dotenv
@@ -6,8 +6,6 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 openai.api_key = os.getenv('OPENAI_API_KEY')
-
-app = Flask(__name__)
 
 # Predefined mappings for common symptoms (Bangladesh-specific)
 SYMPTOM_SPECIALIZATION_MAP = {
@@ -67,16 +65,8 @@ def analyze_symptoms(symptoms_text):
         print(f"AI analysis error: {e}")
         return "General Physician"  # Fallback option
 
-@app.route('/analyze-symptoms', methods=['POST'])
-def analyze_symptoms_api():
-    data = request.json
-    symptoms = data.get('symptoms', '')
-    
-    if not symptoms:
-        return jsonify({'error': 'No symptoms provided'}), 400
-    
-    specialization = analyze_symptoms(symptoms)
-    return jsonify({'specialization': specialization})
-
-if __name__ == '__main__':
-    app.run(debug=True)
+# For testing locally
+if __name__ == "__main__":
+    test_symptoms = input("Enter symptoms: ")
+    result = analyze_symptoms(test_symptoms)
+    print(f"Recommended specialization: {result}")
