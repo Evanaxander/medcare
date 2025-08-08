@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body { 
+    font-family: 'Inter', sans-serif; 
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="medical" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="1" fill="%23e0f2fe" opacity="0.3"/><path d="M8 6h4v8h-4z" fill="%23b3e5fc" opacity="0.2"/><path d="M6 8h8v4h-8z" fill="%23b3e5fc" opacity="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23medical)"/></svg>');
+    background-size: 200px 200px;
+}
+
+.gradient-bg { 
+    background: linear-gradient(135deg, #0d47a1 0%, #1976d2 50%, #42a5f5 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.gradient-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="1.5" fill="white" opacity="0.1"/><circle cx="40" cy="70" r="1" fill="white" opacity="0.1"/><circle cx="70" cy="10" r="1.2" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.8" fill="white" opacity="0.1"/><circle cx="90" cy="80" r="1.8" fill="white" opacity="0.1"/></svg>');
+    background-size: 300px 300px;
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) translateX(0px); }
+    25% { transform: translateY(-10px) translateX(5px); }
+    50% { transform: translateY(-5px) translateX(-5px); }
+    75% { transform: translateY(-15px) translateX(3px); }
+}
+
+.card-shadow { 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.symptom-tag { transition: all 0.2s ease; }
+.symptom-tag:hover { transform: translateY(-1px); }
+
+.logo-container {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.medical-bg {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><pattern id="heartbeat" patternUnits="userSpaceOnUse" width="40" height="20"><path d="M0 10 L8 10 L10 5 L12 15 L14 8 L16 12 L18 10 L40 10" stroke="%23e3f2fd" stroke-width="0.5" fill="none" opacity="0.3"/></pattern></defs><rect width="200" height="200" fill="url(%23heartbeat)"/></svg>');
+    background-size: 400px 200px;
+}
